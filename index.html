@@ -26,8 +26,7 @@
 
         .data-overlay {
             position: absolute;
-            /* Fine-tuned boundaries based on the target image */
-            top: 28.2%;    
+            top: 28.1%;    
             bottom: 13.8%; 
             left: 13.6%;   
             right: 9.3%;   
@@ -37,34 +36,36 @@
 
         .row {
             display: grid;
-            /* NEW COLUMN WIDTHS perfectly mapped to the yellow headers */
-            /* [Blank Rank] [Team] [Uni] [Badges] [Time] [LapVid] [TeamVid] */
-            grid-template-columns: 9.5% 21% 21% 16.5% 12% 10% 10%;
+            /* NEW PERFECTLY MEASURED COLUMNS: 
+               [Rank] [Team] [Uni] [Badges] [Time] [LapVid] [TeamVid] */
+            grid-template-columns: 9.5% 15.5% 12.5% 15% 9.5% 18% 20%;
             height: 100%;
         }
 
         .cell {
-            /* Flexbox ensures text is dead-center both vertically and horizontally */
+            /* This ensures text floats perfectly in the dead center of its column */
             display: flex;
             justify-content: center; 
             align-items: center;     
             
-            font-size: 1vw; /* Slightly smaller font */
-            font-weight: 500; /* Lighter bold */
-            text-transform: uppercase; /* Forces text to look like "TEAM 1" */
-            letter-spacing: 0.5px; /* Slight spacing for readability */
+            font-size: 1.05vw; 
+            font-weight: 500; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Styling for badge icons (if you decide to use images instead of text) */
         .badge-icon {
-            height: 50%; /* Scales the icon to fit nicely in the row */
-            margin: 0 5px; /* Spacing if there are multiple badges */
+            height: 45%; 
+            margin: 0 4px; 
         }
 
         .vid-cell {
             position: relative;
             cursor: pointer;
             display: block;
+            width: 100%;
+            height: 100%;
         }
 
         .video-link {
