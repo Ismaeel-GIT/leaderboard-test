@@ -36,30 +36,29 @@
 
         .row {
             display: grid;
-            /* PERFECTLY MEASURED COLUMNS: [Rank] [Team] [Uni] [Badges] [Time] [LapVid] [TeamVid] */
             grid-template-columns: 9.5% 15.5% 12.5% 15% 9.5% 18% 20%;
             height: 100%;
-            min-height: 0; /* Prevents large images from breaking the grid height */
+            min-height: 0; 
         }
 
         .cell {
-            /* This ensures text floats perfectly in the dead center of its column */
             display: flex;
             justify-content: center; 
             align-items: center;     
-            
             font-size: 1.05vw; 
             font-weight: 500; 
             text-transform: uppercase; 
             letter-spacing: 0.5px; 
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-align: center;
         }
 
-        /* THIS FIXES THE GIANT IMAGE ISSUE */
-        .badge-icon {
-            height: 1.8vw; /* Locks height to scale with the screen */
-            width: auto;   /* Prevents stretching */
+        /* FAILSAFE: This absolutely prevents any image from breaking your layout */
+        .cell img {
+            max-height: 1.8vw !important; 
+            width: auto !important;   
             margin: 0 4px; 
+            object-fit: contain;
         }
 
         .vid-cell {
@@ -85,15 +84,15 @@
     <div class="leaderboard-container">
         <div class="data-overlay">
             
-            <!-- ROW 1 -->
+            <!-- ROW 1 (WITH BADGE AND YOUTUBE LINKS) -->
             <div class="row">
                 <div class="cell"></div>
                 <div class="cell">Team 1</div>
                 <div class="cell">University 1</div>
-                <div class="cell">5</div> 
+                <div class="cell"><img src="badge.png"></div> 
                 <div class="cell">1:28:234</div>
-                <div class="vid-cell"><a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="video-link"></a></div>
-                <div class="vid-cell"><a href="YOUR_TEAM_VIDEO_LINK_HERE" target="_blank" class="video-link"></a></div>
+                <div class="vid-cell"><a href="https://www.youtube.com/" target="_blank" class="video-link"></a></div>
+                <div class="vid-cell"><a href="https://www.youtube.com/" target="_blank" class="video-link"></a></div>
             </div>
 
             <!-- ROW 2 -->
@@ -118,15 +117,12 @@
                 <div class="vid-cell"><a href="#" target="_blank" class="video-link"></a></div>
             </div>
 
-            <!-- ROW 4 (EXAMPLE WITH BADGE) -->
+            <!-- ROW 4 -->
             <div class="row">
                 <div class="cell"></div>
                 <div class="cell">Team 4</div>
                 <div class="cell">University 4</div>
-                
-                <!-- Put your image filename here instead of your-image-name.png -->
-                <div class="cell"><img src="badge.png" class="badge-icon"></div>
-                
+                <div class="cell"></div>
                 <div class="cell">1:45:234</div>
                 <div class="vid-cell"><a href="#" target="_blank" class="video-link"></a></div>
                 <div class="vid-cell"><a href="#" target="_blank" class="video-link"></a></div>
