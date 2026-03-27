@@ -4,24 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TORCS UK Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            background-color: #0b1c98; /* Matches the dark blue edges */
+            background-color: #0b1c98; /* Dark blue background */
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        img {
-            max-width: 100%; /* Ensures it scales nicely on smaller screens */
-            height: auto;
+
+        /* This container holds the image and the table together */
+        .leaderboard-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px; 
+            aspect-ratio: 16 / 9; /* Standard Canva presentation size */
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
+
+        /* The Canva Background */
+        .background-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Puts image in the back */
+        }
+
+        /* The Invisible Table Overlay */
+        table {
+            position: absolute;
+            z-index: 2; /* Puts table in the front */
+            
+            /* --- ADJUST THESE IF THE TEXT DOESN'T LINE UP --- */
+            top: 32%;      /* Moves table up or down */
+            left: 11%;     /* Moves table left or right */
+            width: 78%;    /* Stretches table wider */
+            height: 48.5%; /* Stretches table taller */
+            /* ------------------------------------------------ */
+
+            border-collapse: collapse;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+        }
+
+        /* Table Text Styling */
+        th, td {
+            width: 14.28%; /* Keeps 7 columns equal width */
+            font-size: 1.2vw; /* Text scales with the window */
+            font-weight: 700;
+        }
+
+        /* Making sure rank 1 text is dark blue, the rest white */
+        tr:nth-child(1) td { color: #0b1c98; }
+        tr:nth-child(n+2) td { color: #ffffff; }
+
+        /* The Play Buttons */
+        .play-btn {
+            text-decoration: none;
+            font-size: 1.5vw;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .play-btn:hover { transform: scale(1.2); } /* Cool hover effect! */
+        
+        .play-dark { color: #0b1c98; }
+        .play-grey { color: #cccccc; }
+        .play-orange { color: #ff8c00; }
+        .play-black { color: #000000; }
     </style>
 </head>
 <body>
 
-    <img src="leaderboard 2.png" alt="TORCS UK Leaderboard">
+    <div class="leaderboard-container">
+        <img src="blank-board.png" alt="Leaderboard Background" class="background-img">
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>TEAM 1</td>
+                    <td>UNIVERSITY 1</td>
+                    <td>⏱️</td>
+                    <td>1:28:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-dark">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-dark">▶</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>TEAM 2</td>
+                    <td>UNIVERSITY 2</td>
+                    <td></td>
+                    <td>1:35:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-grey">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-grey">▶</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>TEAM 3</td>
+                    <td>UNIVERSITY 3</td>
+                    <td></td>
+                    <td>1:40:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-orange">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-orange">▶</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>TEAM 4</td>
+                    <td>UNIVERSITY 4</td>
+                    <td>🎯 🏃</td>
+                    <td>1:45:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>TEAM 5</td>
+                    <td>UNIVERSITY 5</td>
+                    <td>✂️</td>
+                    <td>1:50:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>TEAM 6</td>
+                    <td>UNIVERSITY 6</td>
+                    <td></td>
+                    <td>1:55:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>TEAM 7</td>
+                    <td>UNIVERSITY 7</td>
+                    <td></td>
+                    <td>2:28:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>TEAM 8</td>
+                    <td>UNIVERSITY 8</td>
+                    <td></td>
+                    <td>2:30:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>TEAM 9</td>
+                    <td>UNIVERSITY 9</td>
+                    <td></td>
+                    <td>2:35:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>TEAM 10</td>
+                    <td>UNIVERSITY 10</td>
+                    <td></td>
+                    <td>2:40:234</td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                    <td><a href="#" target="_blank" class="play-btn play-black">▶</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
